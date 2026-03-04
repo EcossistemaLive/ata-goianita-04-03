@@ -8,6 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap"
         rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <style>
         :root {
             --primary-bg: #06192a;
@@ -35,6 +36,7 @@
             color: var(--text-primary);
             font-family: var(--font-primary);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         header {
@@ -116,6 +118,15 @@
         h3::before {
             content: '◈';
             color: var(--accent-color);
+        }
+
+        .mermaid-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border-color);
         }
 
         .grid-lojas {
@@ -204,7 +215,7 @@
     <header>
         <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png"
             alt="Live">
-        <span class="badge">REESTRUTURAÇÃO V2</span>
+        <span class="badge">REESTRUTURAÇÃO V2.1</span>
     </header>
 
     <main>
@@ -216,25 +227,92 @@
 
         <section class="container fade-in">
             <div class="card">
-                <h2>🏢 Organograma por Unidade</h2>
-                <div class="grid-lojas">
+                <h2>📊 Organograma Corporativo Visual</h2>
+                <p>Abaixo, a representação gráfica da hierarquia e fluxos de reporte da Casa Goianita.</p>
+
+                <div class="mermaid-container">
+                    <div class="mermaid">
+                        graph TD
+                        %% Nível 1 - Conselheiros e Sócios Decisores
+                        subgraph Diretoria_e_Conselho [Nível 1 - Diretoria e Sócios]
+                        SC[Seu Carlos <br /> Fundador / Patriarca]
+                        CL[Cláudia <br /> Sócia / Diretora Comercial e Financeira]
+                        SI[Silvana <br /> Sócia / Cofre e VM]
+                        CU[Curuca/Carlos <br /> Sócio / Compras]
+                        DE[Débora <br /> Sócia / Marketing]
+                        end
+
+                        %% Nível 2 - Gerência Estratégica e Coordenação
+                        subgraph Gerencia_Staff [Nível 2 - Gerência & Staff Central]
+                        LE[Leila <br /> DP e Controladoria RH]
+                        EL[Elber <br /> Sócio Gerente Operacional]
+                        KA[Karinne <br /> Supervisora Central Trocas e Listas]
+                        end
+
+                        %% Nível 3 - Unidades de Negócio (Lojas)
+                        subgraph Unidade_T4 [Loja T4]
+                        FA[Fabrício <br /> Gerente T4]
+                        VT4[Vendedores T4: <br /> Pedro, Iza, Joyce, Elayne]
+                        JT4[Juliana <br /> Caixa T4]
+                        end
+
+                        subgraph Unidade_85 [Loja 85]
+                        AD[Adriano <br /> Gerente 85]
+                        V85[Vendedores 85: <br /> Flávia, Valmi, Maria, <br /> Maycon, Iasmin, Batista]
+                        K85[Késia <br /> Caixa 85]
+                        end
+
+                        subgraph Unidade_135 [Loja 135]
+                        S135[Sirlene <br /> Vendedora 135]
+                        A135[Ana Paula <br /> Caixa 135]
+                        end
+
+                        %% Nível 4 - BackOffice Operacional
+                        subgraph BackOffice [Nível 4 - BackOffice e Suporte Central]
+                        ER[Érica <br /> Auxiliar Financeiro]
+                        LU[Lucas <br /> Estoquista]
+                        ED[Eduardo <br /> Suporte TI]
+                        end
+
+                        %% Relações de Reporte
+                        SC --> CL
+                        SC --> SI
+                        SC --> CU
+
+                        CL --> LE
+                        CL --> ER
+                        CL --> KA
+
+                        CL --> EL
+                        EL --> FA
+                        EL --> AD
+                        EL --> S135
+
+                        FA --> VT4
+                        FA --> JT4
+
+                        AD --> V85
+                        AD --> K85
+
+                        S135 --> A135
+
+                        CU --> LU
+
+                        %% Estilização
+                        classDef normal fill:#06192a,stroke:#00e800,stroke-width:2px,color:#fff;
+                        class SC,CL,SI,CU,DE,LE,EL,KA,FA,AD,S135,VT4,V85,JT4,K85,A135,ER,LU,ED normal;
+                    </div>
+                </div>
+
+                <div class="grid-lojas" style="display: none;">
+                    <!-- Opcional: mantendo escondido se o mermaid renderizar bem -->
                     <div class="loja-card">
                         <h4>Loja T4</h4>
                         <p><strong>Gerente:</strong> Fabrício</p>
                         <p><strong>Caixa:</strong> Juliana</p>
                         <p><strong>Vendas:</strong> Pedro, Iza, Joyce, Elayne</p>
                     </div>
-                    <div class="loja-card">
-                        <h4>Loja 85</h4>
-                        <p><strong>Gerente:</strong> Adriano</p>
-                        <p><strong>Caixa:</strong> Késia</p>
-                        <p><strong>Vendas:</strong> Flávia, Valmi, Maria, Maycon, Iasmin, Batista</p>
-                    </div>
-                    <div class="loja-card">
-                        <h4>Loja 135</h4>
-                        <p><strong>Vendedora:</strong> Sirlene</p>
-                        <p><strong>Caixa:</strong> Ana Paula</p>
-                    </div>
+                    <!-- ... -->
                 </div>
             </div>
         </section>
@@ -291,6 +369,8 @@
     </footer>
 
     <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
