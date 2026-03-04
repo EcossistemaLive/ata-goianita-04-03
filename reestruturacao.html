@@ -4,23 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação Executiva V2 — Casa Goianita</title>
+    <title>Sistema de Gestão Alta Performance | Casa Goianita V3.0</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <style>
         :root {
-            --primary-bg: #06192a;
-            --card-bg: #0A243D;
-            --accent-color: #00e800;
+            --live-deep: #06192a;
+            --live-darker: #04121f;
+            --live-accent: #00e800;
+            --live-accent-dim: rgba(0, 232, 0, 0.1);
             --text-primary: #ffffff;
-            --text-muted: #cccccc;
-            --font-primary: 'Poppins', sans-serif;
-            --font-secondary: 'Merriweather', serif;
-            --border-color: rgba(255, 255, 255, 0.1);
-            --space-md: 2rem;
-            --radius: 12px;
+            --text-secondary: #94a3b8;
+            --border-subtle: rgba(255, 255, 255, 0.1);
+            --radius: 16px;
         }
 
         * {
@@ -30,353 +29,377 @@
         }
 
         body {
-            background-color: var(--primary-bg);
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-            background-attachment: fixed;
+            background-color: var(--live-deep);
             color: var(--text-primary);
-            font-family: var(--font-primary);
+            font-family: 'Poppins', sans-serif;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='46' viewBox='0 0 40 46' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.08'%3E%3Cpath d='M0 46V23l20-11.5L40 23v23L20 34.5zM0 23L20 11.5 40 23 20 34.5zM20 11.5L0 0 40 0z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        header {
+        .tab-nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(6, 25, 42, 0.9);
+            height: 70px;
+            background: rgba(4, 18, 31, 0.95);
             backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            border-bottom: 1px solid var(--border-color);
+            gap: 20px;
+            border-bottom: 2px solid var(--border-subtle);
             z-index: 1000;
         }
 
-        header img {
-            height: 40px;
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .badge {
-            background: var(--accent-color);
-            color: var(--primary-bg);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
+        .tab-btn.active {
+            color: var(--live-accent);
+            border-bottom: 2px solid var(--live-accent);
         }
 
         main {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 120px 20px 60px;
+            margin: 100px auto 60px;
+            padding: 0 20px;
         }
 
-        .hero {
-            text-align: center;
-            margin-bottom: 4rem;
-            padding: 3rem;
-            background: rgba(10, 36, 61, 0.5);
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glass-card {
+            background: rgba(10, 36, 61, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-subtle);
             border-radius: var(--radius);
-            border: 1px solid var(--border-color);
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero h1 span {
-            color: var(--accent-color);
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            padding: var(--space-md);
+            padding: 2.5rem;
             margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--live-accent);
+            margin-bottom: 1rem;
+            text-align: center;
         }
 
         h2 {
             font-size: 1.8rem;
-            color: var(--accent-color);
+            border-left: 4px solid var(--live-accent);
+            padding-left: 15px;
             margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        h3::before {
-            content: '◈';
-            color: var(--accent-color);
-        }
-
-        .mermaid-container {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 1.5rem 0;
-            border: 1px solid var(--border-color);
         }
 
         .grid-lojas {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
         }
 
         .loja-card {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(0, 0, 0, 0.2);
             padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-color);
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
         }
 
         .loja-card h4 {
-            color: var(--accent-color);
+            color: var(--live-accent);
             margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            font-size: 0.9rem;
+        .mermaid-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 20px 0;
+            overflow-x: auto;
         }
 
-        th {
-            text-align: left;
-            padding: 12px;
-            background: rgba(0, 232, 0, 0.1);
-            color: var(--accent-color);
-        }
-
-        td {
-            padding: 12px;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-muted);
-        }
-
-        .atribuicoes-list {
+        .module-list {
             list-style: none;
         }
 
-        .atribuicoes-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .module-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid transparent;
+            transition: 0.3s;
         }
 
-        .atribuicoes-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
+        .module-item:hover {
+            border-left-color: var(--live-accent);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .module-title {
+            font-weight: 700;
+            color: var(--live-accent);
+            font-size: 1.1rem;
+        }
+
+        .module-time {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .weekly-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .weekly-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-nav {
+                gap: 5px;
+                height: 60px;
+            }
+
+            .tab-btn {
+                font-size: 0.7rem;
+                padding: 5px 10px;
+            }
+        }
+
+        .day-card {
+            background: var(--live-accent-dim);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 232, 0, 0.2);
+        }
+
+        .day-name {
+            font-weight: 800;
+            color: var(--live-accent);
+            text-transform: uppercase;
+            margin-bottom: 5px;
         }
 
         footer {
             text-align: center;
-            padding: 3rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+            padding: 40px;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png"
-            alt="Live">
-        <span class="badge">REESTRUTURAÇÃO V2.1</span>
-    </header>
+    <nav class="tab-nav">
+        <button class="tab-btn active" onclick="showTab('organograma')"><i class="fa-solid fa-sitemap"></i>
+            Organograma</button>
+        <button class="tab-btn" onclick="showTab('maestro')"><i class="fa-solid fa-user-tie"></i> Maestro</button>
+        <button class="tab-btn" onclick="showTab('estoque')"><i class="fa-solid fa-boxes-stacked"></i> Estoque
+            5S</button>
+    </nav>
 
     <main>
-        <section class="hero fade-in">
-            <p style="color: var(--accent-color); letter-spacing: 2px;">MAPEAMENTO 360° — CASA GOIANITA</p>
-            <h1>Estrutura de <span>Unidades & Atribuições</span></h1>
-            <p>Padronização operacional para as lojas T4, 85 e 135.</p>
-        </section>
-
-        <section class="container fade-in">
-            <div class="card">
-                <h2>📊 Organograma Corporativo Visual</h2>
-                <p>Abaixo, a representação gráfica da hierarquia e fluxos de reporte da Casa Goianita.</p>
+        <!-- ABA 1: ORGANOGRAMA -->
+        <div id="organograma" class="tab-content active">
+            <section class="glass-card">
+                <h1>Cadeia de Comando V3.0</h1>
+                <p style="text-align:center; margin-bottom: 2rem;">Logística atualizada: Elber (T4) | Adriano (85) |
+                    Fabrício (135)</p>
 
                 <div class="mermaid-container">
                     <div class="mermaid">
                         graph TD
-                        %% Nível 1 - Conselheiros e Sócios Decisores
-                        subgraph Diretoria_e_Conselho [Nível 1 - Diretoria e Sócios]
-                        SC[Seu Carlos <br /> Fundador / Patriarca]
-                        CL[Cláudia <br /> Sócia / Diretora Comercial e Financeira]
-                        SI[Silvana <br /> Sócia / Cofre e VM]
-                        CU[Curuca/Carlos <br /> Sócio / Compras]
-                        DE[Débora <br /> Sócia / Marketing]
+                        subgraph Diretoria [Nível 1 - Sócios]
+                        SC[Seu Carlos]
+                        CL[Cláudia]
+                        SI[Silvana]
+                        CU[Curuca]
+                        DE[Débora]
                         end
 
-                        %% Nível 2 - Gerência Estratégica e Coordenação
-                        subgraph Gerencia_Staff [Nível 2 - Gerência & Staff Central]
-                        LE[Leila <br /> DP e Controladoria RH]
-                        EL[Elber <br /> Sócio Gerente Operacional]
-                        KA[Karinne <br /> Supervisora Central Trocas e Listas]
+                        subgraph Staff [Nível 2 - Apoio]
+                        LE[Leila - DP/RH]
+                        KA[Karinne - Central]
                         end
 
-                        %% Nível 3 - Unidades de Negócio (Lojas)
-                        subgraph Unidade_T4 [Loja T4]
-                        FA[Fabrício <br /> Gerente T4]
-                        VT4[Vendedores T4: <br /> Pedro, Iza, Joyce, Elayne]
-                        JT4[Juliana <br /> Caixa T4]
-                        end
-
-                        subgraph Unidade_85 [Loja 85]
+                        subgraph Lojas [Nível 3 - Gestão de Unidades]
+                        EL[Elber <br /> Gerente T4]
                         AD[Adriano <br /> Gerente 85]
-                        V85[Vendedores 85: <br /> Flávia, Valmi, Maria, <br /> Maycon, Iasmin, Batista]
-                        K85[Késia <br /> Caixa 85]
+                        FA[Fabrício <br /> Gerente 135]
                         end
 
-                        subgraph Unidade_135 [Loja 135]
-                        S135[Sirlene <br /> Vendedora 135]
-                        A135[Ana Paula <br /> Caixa 135]
+                        subgraph Equipes [Nível 4 - Operacional]
+                        VT4[Times T4]
+                        V85[Times 85]
+                        V135[Sirlene/Ana]
+                        ER[Érica - Fin]
+                        LU[Lucas - Est]
                         end
-
-                        %% Nível 4 - BackOffice Operacional
-                        subgraph BackOffice [Nível 4 - BackOffice e Suporte Central]
-                        ER[Érica <br /> Auxiliar Financeiro]
-                        LU[Lucas <br /> Estoquista]
-                        ED[Eduardo <br /> Suporte TI]
-                        end
-
-                        %% Relações de Reporte
-                        SC --> CL
-                        SC --> SI
-                        SC --> CU
 
                         CL --> LE
-                        CL --> ER
-                        CL --> KA
-
                         CL --> EL
-                        EL --> FA
                         EL --> AD
-                        EL --> S135
-
-                        FA --> VT4
-                        FA --> JT4
-
+                        EL --> FA
+                        EL --> VT4
                         AD --> V85
-                        AD --> K85
-
-                        S135 --> A135
-
+                        FA --> V135
                         CU --> LU
+                        CL --> ER
 
-                        %% Estilização
                         classDef normal fill:#06192a,stroke:#00e800,stroke-width:2px,color:#fff;
-                        class SC,CL,SI,CU,DE,LE,EL,KA,FA,AD,S135,VT4,V85,JT4,K85,A135,ER,LU,ED normal;
+                        class SC,CL,SI,CU,DE,LE,EL,KA,FA,AD,VT4,V85,V135,ER,LU normal;
                     </div>
                 </div>
 
-                <div class="grid-lojas" style="display: none;">
-                    <!-- Opcional: mantendo escondido se o mermaid renderizar bem -->
+                <div class="grid-lojas" style="margin-top: 2rem;">
                     <div class="loja-card">
                         <h4>Loja T4</h4>
-                        <p><strong>Gerente:</strong> Fabrício</p>
-                        <p><strong>Caixa:</strong> Juliana</p>
-                        <p><strong>Vendas:</strong> Pedro, Iza, Joyce, Elayne</p>
+                        <p><strong>Gestão Local:</strong> Elber</p>
+                        <p><strong>Equipe:</strong> Pedro, Iza, Joyce, Elayne, Juliana (Caixa)</p>
                     </div>
-                    <!-- ... -->
+                    <div class="loja-card">
+                        <h4>Loja 85</h4>
+                        <p><strong>Gerente:</strong> Adriano</p>
+                        <p><strong>Equipe:</strong> Flávia, Valmi, Maria, Maycon, Iasmin, Batista, Késia (Caixa)</p>
+                    </div>
+                    <div class="loja-card">
+                        <h4>Loja 135</h4>
+                        <p><strong>Gerente:</strong> Fabrício</p>
+                        <p><strong>Equipe:</strong> Sirlene (Vendas), Ana Paula (Caixa)</p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
-        <section class="container fade-in">
-            <div class="card">
-                <h2>📋 Dicionário de Atribuições</h2>
+        <!-- ABA 2: MAESTRO -->
+        <div id="maestro" class="tab-content">
+            <section class="glass-card">
+                <h1>Manual do Maestro V6.0</h1>
+                <p style="text-align:center; margin-bottom: 2rem;">"O comando que transforma faturamento em lucro."</p>
 
-                <h3>Gerência de Loja</h3>
-                <table>
-                    <tr>
-                        <td width="30%"><strong>Gestão de Salão</strong></td>
-                        <td>Organização da "Roleta de Atendimento" (Vez) e harmonia do time.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Poder Corretivo</strong></td>
-                        <td>Aplicação de feedbacks sobre cadastros (CPF 888) e postura.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Aprovação Comercial</strong></td>
-                        <td>Autorização de descontos acima da alçada do vendedor.</td>
-                    </tr>
-                </table>
+                <div class="module-list">
+                    <div class="module-item">
+                        <div class="module-header"><span class="module-title">Módulo 1: O Compasso Diário</span><span
+                                class="module-time">08:00 - 08:45</span></div>
+                        <p>Inspeção 5S (Vitrines e TI) e Briefing Matinal com foco em metas e produtos estratégicos.</p>
+                    </div>
+                    <div class="module-item">
+                        <div class="module-header"><span class="module-title">Módulo 2 & 3: VM e Inventário</span><span
+                                class="module-time">Semanal/Mensal</span></div>
+                        <p>Troca de vitrines toda segunda. Controle PEPS no estoque para acuracidade total.</p>
+                    </div>
+                    <div class="module-item">
+                        <div class="module-header"><span class="module-title">Módulo 5: Guardião da Cultura</span><span
+                                class="module-time">Gestão de Pessoal</span></div>
+                        <p>Filtro de contratação, verificação de referências e controle rigoroso de escalas/pontos.</p>
+                    </div>
+                    <div class="module-item">
+                        <div class="module-header"><span class="module-title">Módulo 9: O Diplomata</span><span
+                                class="module-time">Crises</span></div>
+                        <p>O gerente assume pessoalmente reclamações. Troca não é custo, é fidelização.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-                <h3 style="margin-top: 2rem;">Consultoria de Vendas</h3>
-                <ul class="atribuicoes-list">
-                    <li>Sondagem técnica para Mesa Posta, Cristais e Utilidades.</li>
-                    <li><strong>Obrigatoriedade CRM:</strong> Cadastro completo de 100% dos clientes no ERP.</li>
-                    <li>Reposição e VM diário da sua ilha/setor de responsabilidade.</li>
-                    <li>Fidelização e Pós-venda para Noivas e Listas.</li>
-                </ul>
+        <!-- ABA 3: ESTOQUE 5S -->
+        <div id="estoque" class="tab-content">
+            <section class="glass-card">
+                <h1>Gestão de Estoque 5S Elite</h1>
 
-                <h3 style="margin-top: 2rem;">Operação de Caixa</h3>
-                <ul class="atribuicoes-list">
-                    <li>Validação rigorosa de meios de pagamento (Pix/Cartão).</li>
-                    <li>Sangrias sistêmicas para manutenção do limite do PDV.</li>
-                    <li>Fechamento cego e entrega de malote lacrado para Tesouraria.</li>
-                    <li>Suporte no empacotamento premium para agilizar o checkout.</li>
-                </ul>
-            </div>
-        </section>
+                <div class="loja-card" style="border-left: 4px solid #00e800; margin-bottom: 2rem;">
+                    <h4>Regra de Ouro: Bloco Crítico</h4>
+                    <p><strong>08:00 - 09:30:</strong> Preparação total de transferências. O motorista não espera
+                        separação.</p>
+                </div>
 
-        <section class="container fade-in">
-            <div class="card">
-                <h2>🚀 Próximos Passos (Transição)</h2>
-                <p>Implementação imediata dos manuais através de Leila (RH) e treinamento in-loco com Fabrício e
-                    Adriano.</p>
-            </div>
-        </section>
+                <h2>Cronograma Semanal de Foco</h2>
+                <div class="weekly-grid">
+                    <div class="day-card">
+                        <div class="day-name">SEG</div>
+                        <p>Auditoria de FDS e Transferências.</p>
+                    </div>
+                    <div class="day-card">
+                        <div class="day-name">TER</div>
+                        <p>Pesados e Eletros (Zona Baixa).</p>
+                    </div>
+                    <div class="day-card">
+                        <div class="day-name">QUA</div>
+                        <p>Miudezas e Talheres (Caixas).</p>
+                    </div>
+                    <div class="day-card">
+                        <div class="day-name">QUI</div>
+                        <p>Vidros e Cristais (Inspeção).</p>
+                    </div>
+                    <div class="day-card">
+                        <div class="day-name">SEX</div>
+                        <p>Outlet e Precificação.</p>
+                    </div>
+                    <div class="day-card">
+                        <div class="day-name">SÁB</div>
+                        <p>Agilidade Total de Entrega.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>
-        <p>© 2026 Live Consultoria. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Live Consultoria | Estrategista: Cléber Donato</p>
     </footer>
 
     <script>
-        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral', themeVariables: { primaryColor: '#00e800' } });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`button[onclick="showTab('${tabId}')"]`).classList.add('active');
+            if (tabId === 'organograma') mermaid.init();
+        }
     </script>
 
 </body>
