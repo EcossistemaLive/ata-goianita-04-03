@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ata de Reunião — Casa Goianita — 04/03/2026</title>
-    <meta name="description"
-        content="Ata executiva da reunião de reestruturação da Casa Goianita — 04/03/2026. Deliberações sobre parceria Ítalo, vendas online, equipe, mudança de loja, nova marca e governança.">
+    <title>Ata de Reunião - Casas Goianita | Live Consultoria</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap"
         rel="stylesheet">
@@ -15,19 +13,16 @@
             --primary-bg: #06192a;
             --card-bg: #0A243D;
             --accent-color: #00e800;
-            --accent-secondary: #00b300;
-            --danger-color: #ff4d4d;
-            --warning-color: #ffaa00;
             --text-primary: #ffffff;
             --text-muted: #cccccc;
-            --text-dark: #aaaaaa;
             --font-primary: 'Poppins', sans-serif;
             --font-secondary: 'Merriweather', serif;
             --border-color: rgba(255, 255, 255, 0.1);
             --space-sm: 1rem;
             --space-md: 2rem;
             --space-lg: 3rem;
-            --radius: 12px;
+            --radius-md: 12px;
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -42,305 +37,235 @@
             background-attachment: fixed;
             color: var(--text-primary);
             font-family: var(--font-primary);
-            line-height: 1.7;
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            background: rgba(6, 25, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 0.8rem var(--space-md);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        header img {
-            height: 40px;
-        }
-
-        header .badge {
-            background: var(--accent-color);
-            color: var(--primary-bg);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-
-        main {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 100px var(--space-md) var(--space-lg);
+            line-height: 1.6;
         }
 
         .container {
-            margin-bottom: var(--space-lg);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-top: var(--space-md);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: var(--space-sm);
+            color: var(--text-muted);
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(6, 25, 42, 0.9);
+            backdrop-filter: blur(10px);
+            padding: var(--space-sm) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        /* Layout */
+        main {
+            padding: var(--space-lg) 0;
         }
 
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: var(--radius);
+            border-radius: var(--radius-md);
             padding: var(--space-md);
             margin-bottom: var(--space-md);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: var(--transition);
         }
 
-        .card.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 5px 15px rgba(0, 232, 0, 0.1);
         }
 
-        h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        h1 span {
-            color: var(--accent-color);
-        }
-
-        h2 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: var(--space-sm);
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--accent-color);
-            color: var(--accent-color);
-        }
-
-        h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: var(--space-sm) 0 0.5rem;
-            color: var(--text-primary);
-        }
-
-        p,
-        li {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        ul {
-            padding-left: 1.2rem;
-            margin-bottom: var(--space-sm);
-        }
-
-        li {
-            margin-bottom: 0.4rem;
-        }
-
-        .tldr {
-            background: linear-gradient(135deg, rgba(0, 232, 0, 0.1), rgba(0, 179, 0, 0.05));
-            border-left: 4px solid var(--accent-color);
-            padding: var(--space-md);
-            border-radius: 0 var(--radius) var(--radius) 0;
-            font-family: var(--font-secondary);
-            font-size: 1rem;
-            color: var(--text-primary);
-            line-height: 1.8;
-        }
-
-        .meta-grid {
+        .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--space-sm);
+            gap: var(--space-md);
         }
 
-        .meta-item {
-            display: flex;
-            flex-direction: column;
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .meta-label {
-            font-size: 0.75rem;
-            color: var(--text-dark);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .meta-value {
-            font-size: 1rem;
-            color: var(--text-primary);
-            font-weight: 400;
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: var(--space-sm) 0;
-            font-size: 0.85rem;
+            margin-top: var(--space-sm);
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        thead {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
         }
 
         th {
-            background: rgba(0, 232, 0, 0.15);
             color: var(--accent-color);
-            text-align: left;
-            padding: 10px 12px;
             font-weight: 600;
-            border-bottom: 2px solid var(--accent-color);
-        }
-
-        td {
-            padding: 10px 12px;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-muted);
-        }
-
-        tr:hover td {
-            background: rgba(255, 255, 255, 0.03);
-        }
-
-        .decision-box {
-            background: rgba(0, 232, 0, 0.08);
-            border: 1px solid rgba(0, 232, 0, 0.3);
-            border-radius: 8px;
-            padding: var(--space-sm);
-            margin: var(--space-sm) 0;
-        }
-
-        .decision-box strong {
-            color: var(--accent-color);
-        }
-
-        .warning-box {
-            background: rgba(255, 170, 0, 0.08);
-            border: 1px solid rgba(255, 170, 0, 0.3);
-            border-radius: 8px;
-            padding: var(--space-sm);
-            margin: 0.5rem 0;
-        }
-
-        .warning-box strong {
-            color: var(--warning-color);
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 700;
+            font-size: 0.9rem;
             text-transform: uppercase;
         }
 
-        .status-iniciar {
-            background: rgba(255, 255, 255, 0.1);
+        td {
             color: var(--text-muted);
-        }
-
-        .status-andamento {
-            background: rgba(0, 232, 0, 0.2);
-            color: var(--accent-color);
-        }
-
-        .status-concluido {
-            background: rgba(0, 232, 0, 0.3);
-            color: #00ff00;
-        }
-
-        .status-condicional {
-            background: rgba(255, 170, 0, 0.2);
-            color: var(--warning-color);
-        }
-
-        .topic-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--accent-color);
-            color: var(--primary-bg);
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-right: 8px;
-            flex-shrink: 0;
-        }
-
-        .topic-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: var(--space-sm);
-        }
-
-        .participants-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 0.8rem;
-        }
-
-        .participant-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 0.8rem;
-            text-align: center;
-        }
-
-        .participant-card .name {
-            font-weight: 600;
-            color: var(--text-primary);
             font-size: 0.95rem;
         }
 
-        .participant-card .role {
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .status-badge {
+            background-color: rgba(0, 232, 0, 0.15);
+            color: var(--accent-color);
+            padding: 4px 8px;
+            border-radius: 4px;
             font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 232, 0, 0.3);
+            display: inline-block;
+        }
+
+        .status-badge.warning {
+            background-color: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+            border-color: rgba(255, 193, 7, 0.3);
+        }
+
+        /* Lists */
+        ul {
+            list-style-position: inside;
+            margin-bottom: var(--space-sm);
             color: var(--text-muted);
         }
 
-        .participant-card .level {
-            font-size: 0.7rem;
-            color: var(--accent-color);
-            margin-top: 4px;
+        li {
+            margin-bottom: 8px;
         }
 
-        footer {
-            text-align: center;
-            padding: var(--space-md);
-            border-top: 1px solid var(--border-color);
-            color: var(--text-dark);
-            font-size: 0.8rem;
-        }
-
-        .divider {
-            height: 1px;
-            background: var(--border-color);
+        /* Blocks */
+        .highlight-block {
+            border-left: 4px solid var(--accent-color);
+            background: rgba(0, 232, 0, 0.05);
+            padding: var(--space-sm);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
             margin: var(--space-md) 0;
         }
 
-        @media (max-width: 640px) {
-            .meta-grid {
-                grid-template-columns: 1fr;
+        .alert-block {
+            border-left: 4px solid #ff4444;
+            background: rgba(255, 68, 68, 0.05);
+            padding: var(--space-sm);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: var(--space-sm) 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: var(--space-md) 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: var(--space-lg);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn ease 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
             }
 
-            .participants-grid {
-                grid-template-columns: 1fr 1fr;
+            100% {
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
 
-            h1 {
-                font-size: 1.5rem;
-            }
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
 
-            table {
-                font-size: 0.75rem;
-            }
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
 
-            th,
-            td {
-                padding: 6px 8px;
-            }
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
         }
     </style>
 </head>
@@ -348,479 +273,164 @@
 <body>
 
     <header>
-        <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png"
-            alt="Live Consultoria">
-        <span class="badge">ATA EXECUTIVA</span>
+        <div class="container header-content">
+            <img src="https://raw.githubusercontent.com/EcossistemaLive/ConsultoriaLive/main/Logo%20live%20oficial-21.png"
+                alt="Live Consultoria" class="logo">
+            <div style="text-align: right;">
+                <h4 style="margin: 0; font-size: 0.9rem; color: var(--accent-color);">Governança Corporativa</h4>
+                <p style="margin: 0; font-size: 0.8rem;">Ata Oficial de Reunião</p>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <!-- HERO -->
-        <section class="container">
-            <div class="card" style="text-align:center; padding: 3rem 2rem;">
-                <p
-                    style="color: var(--accent-color); font-size: 0.85rem; font-weight: 600; letter-spacing: 2px; margin-bottom: 0.5rem;">
-                    REUNIÃO EXECUTIVA • 04 DE MARÇO DE 2026</p>
-                <h1>Ata de Reunião — <span>Casa Goianita</span></h1>
-                <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem;">Reestruturação e Planejamento
-                    Operacional</p>
-            </div>
-        </section>
+    <main class="container">
 
-        <!-- TL;DR -->
-        <section class="container">
-            <div class="card">
-                <h2>📋 Sumário Executivo</h2>
-                <div class="tldr">
-                    Reunião tensa e decisiva marcada pela urgência de cortar despesas e acelerar geração de receita. O
-                    conselho definiu <strong>ultimato para o Ítalo: R$ 8.000 + despesas ou formalização de
-                        saída</strong>. Aprovado o <strong>início imediato das vendas online via Olist</strong>, a
-                    <strong>virada de marca</strong> com teaser e vídeo promocional com 3 gerações, e o
-                    <strong>planejamento da mudança</strong> da loja T4 → 85 com reforma, pintura e novo layout.
-                    Decisões sobre equipe, sistema, licitações e um novo negócio de alimentação do Seu Carlos foram
-                    registradas.
-                </div>
-            </div>
-        </section>
+        <div class="fade-in">
+            <h1>Alinhamento: Aplicativo & Lista de Casamento</h1>
+        </div>
 
-        <!-- METADADOS -->
-        <section class="container">
-            <div class="card">
-                <h2>📌 Metadados</h2>
-                <div class="meta-grid" style="margin-bottom: var(--space-md);">
-                    <div class="meta-item"><span class="meta-label">Data</span><span
-                            class="meta-value">04/03/2026</span></div>
-                    <div class="meta-item"><span class="meta-label">Condutor</span><span class="meta-value">Cléber
-                            Donato</span></div>
-                    <div class="meta-item"><span class="meta-label">Local</span><span class="meta-value">Escritório Casa
-                            Goianita</span></div>
-                    <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Reunião de
-                            Conselho</span></div>
-                </div>
-                <h3>Participantes</h3>
-                <div class="participants-grid">
-                    <div class="participant-card">
-                        <div class="name">Seu Carlos</div>
-                        <div class="role">Fundador / Patriarca</div>
-                        <div class="level">Nível 1 — Decisor Sênior</div>
-                    </div>
-                    <div class="participant-card">
-                        <div class="name">Carlos (Curuca)</div>
-                        <div class="role">Sócio / Compras</div>
-                        <div class="level">Nível 1 — Decisor</div>
-                    </div>
-                    <div class="participant-card">
-                        <div class="name">Luiz Portal</div>
-                        <div class="role">Consultor Líder</div>
-                        <div class="level">Nível 1 — Estratégico</div>
-                    </div>
-                    <div class="participant-card">
-                        <div class="name">Cléber Donato</div>
-                        <div class="role">Consultor de Gestão</div>
-                        <div class="level">Nível 1 — Estratégico</div>
-                    </div>
-                    <div class="participant-card">
-                        <div class="name">Silvana</div>
-                        <div class="role">Sócia / Diretora</div>
-                        <div class="level">Nível 1 — Decisora</div>
-                    </div>
-                    <div class="participant-card">
-                        <div class="name">Débora</div>
-                        <div class="role">Sócia / Marketing</div>
-                        <div class="level">Nível 1 — Decisora</div>
-                    </div>
-                    <div class="participant-card">
-                        <div class="name">Eduardo</div>
-                        <div class="role">Suporte Sistemas</div>
-                        <div class="level">Nível 3 — Técnico</div>
-                    </div>
-                    <div class="participant-card">
-                        <div class="name">Cláudia</div>
-                        <div class="role">Sócia Diretora</div>
-                        <div class="level">Nível 1 — Decisora</div>
-                    </div>
-                    <div class="participant-card">
-                        <div class="name">Elber</div>
-                        <div class="role">Sócio Gerente Operacional</div>
-                        <div class="level">Nível 2 — Estratégico/Operacional</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DELIBERAÇÕES -->
-        <section class="container">
-            <div class="card">
-                <h2>⚖️ Deliberações</h2>
-
-                <!-- Tópico 1 -->
-                <div style="margin-bottom: var(--space-md);">
-                    <div class="topic-header"><span class="topic-number">1</span>
-                        <h3>Situação do Ítalo (Inquilino)</h3>
-                    </div>
-                    <p>Ítalo possui chave de acesso à loja, não cumpriu contrato de 3 meses de parceria e não gerou
-                        resultados para a Goianita. Dois shoppings o convidaram com carência para abrir loja, reduzindo
-                        seu incentivo a pagar. Segurança do acesso é preocupação principal.</p>
-                    <div class="decision-box">
-                        <strong>✅ DECISÃO (Unanimidade):</strong> Propor R$ 10.000 para negociar, aceitar até <strong>R$
-                            8.000 + despesas</strong> + divulgação da lista de casamento (Gabriela como embaixadora).
-                        Caso recuse → carta formal de saída. Depósito vai para o fundo; frente fica com Seu Carlos.
-                    </div>
-                </div>
-
-                <div class="divider"></div>
-
-                <!-- Tópico 2 -->
-                <div style="margin-bottom: var(--space-md);">
-                    <div class="topic-header"><span class="topic-number">2</span>
-                        <h3>Vendas na Internet (Olist)</h3>
-                    </div>
-                    <p>Consenso absoluto sobre urgência. Caixa e comissionamento fechados. Funcionários travam em
-                        operações básicas do sistema. Eduardo consumido por erros de funcionários (vendas erradas, notas
-                        de devolução).</p>
-                    <div class="decision-box">
-                        <strong>✅ DECISÃO:</strong> <strong>Vendas online iniciam hoje (04/03).</strong> Resultados
-                        robustos esperados em 6+ meses. Eduardo inicia configuração imediatamente.
-                    </div>
-                </div>
-
-                <div class="divider"></div>
-
-                <!-- Tópico 3 -->
-                <div style="margin-bottom: var(--space-md);">
-                    <div class="topic-header"><span class="topic-number">3</span>
-                        <h3>Equipe — Desligamentos e Realocações</h3>
-                    </div>
-                    <p>Foi identificada a necessidade de renovar a motivação e o engajamento de parte da equipe. Karinne
-                        tem se destacado por sua proatividade (1 treinamento → já apoia os colegas). Érica encontra-se
-                        sobrecarregada, enquanto Juliana apresenta perfil adequado para assumir novas responsabilidades.
-                        Adriano demonstra lealdade, porém necessita de adequação de perfil.</p>
-                    <div class="decision-box">
-                        <strong>✅ DECISÕES:</strong><br>
-                        • <strong>2 saem da 85</strong> — vendedora que pragueja sai primeiro<br>
-                        • <strong>Adriano:</strong> não desligado, realocado como vendedor com missões externas<br>
-                        • <strong>Juliana:</strong> sobe para financeiro/escritório<br>
-                        • <strong>Késia:</strong> permanece no caixa<br>
-                        • <strong>Organograma:</strong> todos enviam áudio ao Cléber com funções atuais
-                    </div>
-                </div>
-
-                <div class="divider"></div>
-
-                <!-- Tópico 4 -->
-                <div style="margin-bottom: var(--space-md);">
-                    <div class="topic-header"><span class="topic-number">4</span>
-                        <h3>Sistemas e Infraestrutura de TI</h3>
-                    </div>
-                    <p>Avaliação técnica: "Não temos rede, temos emaranhado de extensões." Orçamento de R$ 9.800 para
-                        refazer tudo é inviável agora.</p>
-                    <div class="decision-box">
-                        <strong>✅ DECISÃO:</strong> Investir em <strong>Starlink + access point profissional (~R$
-                            3.000)</strong> em vez de cabeamento. Cortar 2 das 4 linhas de internet. Revogar acesso do
-                        Leandro ao sistema.
-                    </div>
-                </div>
-
-                <div class="divider"></div>
-
-                <!-- Tópico 5 -->
-                <div style="margin-bottom: var(--space-md);">
-                    <div class="topic-header"><span class="topic-number">5</span>
-                        <h3>Mudança de Loja (T4 → 85)</h3>
-                    </div>
-                    <p>Transferência gradual via van. Sem data fixa — T4 opera até a 85 estar pronta. Mercadoria ruim
-                        fica para liquidação, boa vai para a 85.</p>
-                    <div class="decision-box">
-                        <strong>✅ DECISÃO:</strong> Liquidação 25% na T4. Avisos "estamos mudando de endereço" em todas
-                        as entradas. Trocas suspensas durante liquidação. Buscar designer de interiores para layout da
-                        85.
-                    </div>
-                </div>
-
-                <div class="divider"></div>
-
-                <!-- Tópico 6 -->
-                <div style="margin-bottom: var(--space-md);">
-                    <div class="topic-header"><span class="topic-number">6</span>
-                        <h3>Nova Marca — Teaser e Vídeo</h3>
-                    </div>
-                    <p>Clientes perguntam "vocês estão falindo?" — mudança de imagem é urgente. Elementos visuais da
-                        nova marca já definidos.</p>
-                    <div class="decision-box">
-                        <strong>✅ DECISÃO:</strong> Banner "Em breve, novidades" com novas cores. <strong>Vídeo de 1
-                            minuto com 3 gerações</strong> (Carlos + Silvana + Débora). Roteiro via agente Hormozi.
-                        Verba R$ 200-500 para impulsionamento. 1.000 encartes para as lojas.
-                    </div>
-                </div>
-
-                <div class="divider"></div>
-
-                <!-- Tópico 7 -->
-                <div style="margin-bottom: var(--space-md);">
-                    <div class="topic-header"><span class="topic-number">7</span>
-                        <h3>Lista de Casamento — VTEX → Olist</h3>
-                    </div>
-                    <p>VTEX custa R$ 3.000/mês com plataforma deficiente. A C-SOP original funcionava bem mas foi
-                        adquirida. Olist precisa de profissional homologado (R$ 11k — subsidiam metade).</p>
-                    <div class="decision-box">
-                        <strong>✅ DECISÃO:</strong> Aprovar R$ 7.000 (parcelado) para migração. Economia de R$ 3k/mês
-                        paga em ~2 meses. E-mail de encerramento da VTEX já enviado. Novo site: "Casa Goianita
-                        Casamento".
-                    </div>
-                </div>
-
-                <div class="divider"></div>
-
-                <!-- Tópico 8 -->
-                <div style="margin-bottom: var(--space-md);">
-                    <div class="topic-header"><span class="topic-number">8</span>
-                        <h3>Negócio de Alimentação (Seu Carlos)</h3>
-                    </div>
-                    <p>Carlos vai abrir empório no ponto da frente: empadas, pão machadense, quitutes regionais,
-                        goiabadas de Minas. Delivery via 99Food/iFood. Empresa separada com capital próprio.</p>
-                    <div class="decision-box">
-                        <strong>✅ DECISÃO:</strong> Aprovado pela família. Ponto não será devolvido. Goianita usa o
-                        fundo. Banheiro compartilhado (atenção vigilância sanitária). Fachada pode combinar com nova
-                        identidade visual.
-                    </div>
-                </div>
-
-                <div class="divider"></div>
-
-                <!-- Tópico 9 -->
-                <div style="margin-bottom: var(--space-md);">
-                    <div class="topic-header"><span class="topic-number">9</span>
-                        <h3>Governança e Decisões Financeiras</h3>
-                    </div>
-                    <p>Decisões financeiras vinham sendo tomadas por poucos sem ciência de todos. Compras do Curuca e
-                        antecipações precisam de visibilidade.</p>
-                    <div class="decision-box">
-                        <strong>✅ DECISÃO:</strong> <strong>Todas as decisões financeiras passam pelo conselho.</strong>
-                        Criar grupo/canal para aprovação de compras. Nenhum contrato assinado sozinho (incluindo
-                        licitações).
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PLANO DE AÇÃO -->
-        <section class="container">
-            <div class="card">
-                <h2>🎯 Plano de Ação</h2>
-                <div style="overflow-x: auto;">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Ação</th>
-                                <th>Responsável</th>
-                                <th>Prazo</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>01</td>
-                                <td>Propor R$8k + despesas ao Ítalo</td>
-                                <td>Débora</td>
-                                <td>07/03</td>
-                                <td><span class="status-badge status-iniciar">A iniciar</span></td>
-                            </tr>
-                            <tr>
-                                <td>02</td>
-                                <td>Carta formal de saída (se recusar)</td>
-                                <td>Cléber + Advogado</td>
-                                <td>Pós-reunião</td>
-                                <td><span class="status-badge status-condicional">Condicional</span></td>
-                            </tr>
-                            <tr>
-                                <td>03</td>
-                                <td>Iniciar vendas online (Olist)</td>
-                                <td>Eduardo + Cléber</td>
-                                <td>Hoje</td>
-                                <td><span class="status-badge status-andamento">Imediato</span></td>
-                            </tr>
-                            <tr>
-                                <td>04</td>
-                                <td>Gravar vídeo 3 gerações</td>
-                                <td>Carlos + Silvana + Débora</td>
-                                <td>Esta semana</td>
-                                <td><span class="status-badge status-iniciar">A iniciar</span></td>
-                            </tr>
-                            <tr>
-                                <td>05</td>
-                                <td>Instalar banner "Em breve novidades"</td>
-                                <td>Débora</td>
-                                <td>Material pronto</td>
-                                <td><span class="status-badge status-iniciar">A iniciar</span></td>
-                            </tr>
-                            <tr>
-                                <td>06</td>
-                                <td>Imprimir 1.000 encartes</td>
-                                <td>Débora</td>
-                                <td>Esta semana</td>
-                                <td><span class="status-badge status-iniciar">A iniciar</span></td>
-                            </tr>
-                            <tr>
-                                <td>07</td>
-                                <td>Definir lista de desligamentos</td>
-                                <td>Conselho</td>
-                                <td>Março</td>
-                                <td><span class="status-badge status-andamento">Planejando</span></td>
-                            </tr>
-                            <tr>
-                                <td>08</td>
-                                <td>Áudios de descrição de funções → Organograma</td>
-                                <td>Todos → Cléber</td>
-                                <td>Esta semana</td>
-                                <td><span class="status-badge status-iniciar">A iniciar</span></td>
-                            </tr>
-                            <tr>
-                                <td>09</td>
-                                <td>Resolver problema da impressora</td>
-                                <td>Cléber + Tiago</td>
-                                <td>Esta semana</td>
-                                <td><span class="status-badge status-andamento">Em andamento</span></td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>Contratar Starlink + access point</td>
-                                <td>Cléber</td>
-                                <td>Março</td>
-                                <td><span class="status-badge status-iniciar">A iniciar</span></td>
-                            </tr>
-                            <tr>
-                                <td>11</td>
-                                <td>Cancelar 2 linhas de internet</td>
-                                <td>Cléber</td>
-                                <td>Pós-Starlink</td>
-                                <td><span class="status-badge status-condicional">Condicional</span></td>
-                            </tr>
-                            <tr>
-                                <td>12</td>
-                                <td>Definir cores/pintura da loja 85</td>
-                                <td>Fábio + Conselho</td>
-                                <td>Março</td>
-                                <td><span class="status-badge status-iniciar">A iniciar</span></td>
-                            </tr>
-                            <tr>
-                                <td>13</td>
-                                <td>Buscar designer de interiores</td>
-                                <td>Débora / Cléber</td>
-                                <td>Março</td>
-                                <td><span class="status-badge status-iniciar">A iniciar</span></td>
-                            </tr>
-                            <tr>
-                                <td>14</td>
-                                <td>Aprovar migração VTEX → Olist (R$7k)</td>
-                                <td>Conselho</td>
-                                <td>Imediato</td>
-                                <td><span class="status-badge status-concluido">Aprovado</span></td>
-                            </tr>
-                            <tr>
-                                <td>15</td>
-                                <td>Encerrar contrato VTEX</td>
-                                <td>Cléber</td>
-                                <td>Feito</td>
-                                <td><span class="status-badge status-concluido">Concluído</span></td>
-                            </tr>
-                            <tr>
-                                <td>16</td>
-                                <td>Trazer contrato de licitação p/ análise</td>
-                                <td>Carlos</td>
-                                <td>Esta semana</td>
-                                <td><span class="status-badge status-iniciar">A iniciar</span></td>
-                            </tr>
-                            <tr>
-                                <td>17</td>
-                                <td>Criar canal de aprovação de compras</td>
-                                <td>Cléber</td>
-                                <td>Esta semana</td>
-                                <td><span class="status-badge status-iniciar">A iniciar</span></td>
-                            </tr>
-                            <tr>
-                                <td>18</td>
-                                <td>Fechar modelo de comissionamento</td>
-                                <td>Cléber + Carlos</td>
-                                <td>Próx. reunião</td>
-                                <td><span class="status-badge status-andamento">Em andamento</span></td>
-                            </tr>
-                            <tr>
-                                <td>19</td>
-                                <td>Revogar acesso Leandro ao sistema</td>
-                                <td>Cléber / Eduardo</td>
-                                <td>Imediato</td>
-                                <td><span class="status-badge status-iniciar">A iniciar</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- PONTOS DE ATENÇÃO -->
-        <section class="container">
-            <div class="card">
-                <h2>⚠️ Pontos de Atenção</h2>
-
-                <div class="warning-box">
-                    <strong>🔑 Segurança — Chave do Ítalo:</strong>
-                    <p>Troca de fechaduras ou recolhimento da chave deve ser feita independentemente do resultado da
-                        negociação.</p>
-                </div>
-
-                <div class="warning-box">
-                    <strong>👷 Funcionária desmotivada (85):</strong>
-                    <p>Vendedora que "pragueja" e declara não gostar de trabalhar na Goianita deve ser desligada antes
-                        de contaminar a equipe.</p>
-                </div>
-
-                <div class="warning-box">
-                    <strong>🧠 Isa — Saúde mental:</strong>
-                    <p>Isa estava passando por momento difícil e tomando medicação. Decisões sobre ela devem considerar
-                        reavaliação de perfil e conversa sensível.</p>
-                </div>
-
-                <div class="warning-box">
-                    <strong>🔒 Leandro — Acesso ao sistema:</strong>
-                    <p>Leandro (ex-funcionário) foi visto entrando na sala de servidores. Revogar acesso é urgente —
-                        risco de segurança.</p>
-                </div>
-
-                <div class="warning-box">
-                    <strong>🍽️ Vigilância Sanitária:</strong>
-                    <p>Negócio de alimentação do Seu Carlos no ponto ao lado exige aprovação da vigilância sanitária,
-                        especialmente com banheiro compartilhado.</p>
-                </div>
-
-                <div class="warning-box">
-                    <strong>💰 Precificação:</strong>
-                    <p>Múltiplos participantes confirmaram que a Goianita é percebida como "muito cara" pelo mercado.
-                        Tema não resolvido — gargalo estrutural.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer>
-            <p style="margin-bottom: 0.5rem;">
-                <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png"
-                    alt="Live" style="height: 24px; vertical-align: middle; margin-right: 8px;">
-                ATA OFICIAL — Gerada por @SECRETARY
+        <section class="card fade-in delay-1">
+            <h2>0. Sumário Executivo</h2>
+            <p class="highlight-block" style="font-family: var(--font-secondary); font-size: 1.1rem; color: #fff;">
+                A reunião focou no alinhamento das funcionalidades do novo aplicativo/lista de presentes para a Casas
+                Goianita, definindo fluxos de transação (checkout nativo), opções de endereço para entrega e discussão
+                sobre a taxa de R$ 0,99 por checkout. O fluxo técnico do projeto começará oficialmente após a entrega do
+                novo manual da marca da Goianita.
             </p>
-            <p>© 2026 Live Consultoria. Todos os direitos reservados.</p>
-        </footer>
+        </section>
+
+        <div class="grid-2">
+            <section class="card fade-in delay-2">
+                <h2>1. Metadados e Presença</h2>
+                <ul>
+                    <li><strong>Data/Hora:</strong> [Não especulada - ref. Segunda-feira]</li>
+                    <li><strong>Condutor:</strong> Comercial Huapps (Júnior)</li>
+                </ul>
+                <div style="margin-top: 15px;">
+                    <h3>Participantes</h3>
+                    <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; margin-top: 10px;">
+                        <p><strong>Cléber Donato</strong><br>Representante do Projeto (Casas Goianita)</p>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; margin-top: 10px;">
+                        <p><strong>Comercial Huapps (Júnior)</strong><br>Fornecedor - Consultor Comercial</p>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; margin-top: 10px;">
+                        <p><strong>Jader Andrade</strong><br>Fornecedor - Consultor Técnico/Comercial</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card fade-in delay-2">
+                <h2>2. Pauta e Objetivos</h2>
+                <ul>
+                    <li>Revisão da funcionalidade de Checkout no aplicativo.</li>
+                    <li>Definição da lógica de endereçamento de entregas (convidado vs anfitrião).</li>
+                    <li>Discussão sobre a taxa de Checkout de R$ 0,99 transacionada no aplicativo.</li>
+                    <li>Atualização sobre o projeto de rebranding (nova identidade visual) da Casas Goianita.</li>
+                    <li>Alinhamento sobre e-mails para assinatura digital.</li>
+                </ul>
+
+                <h2 style="margin-top: 2rem;">3. Registro de Hierarquia</h2>
+                <ul>
+                    <li><strong>Aprovação de taxas/repasses:</strong> Débora (A ser validado por Cléber)</li>
+                    <li><strong>Aprovação do Manual da Marca:</strong> Diretoria Goianita (Via Cléber)</li>
+                    <li><strong>Validação do contrato:</strong> Jader Andrade & Comercial Huapps (Júnior)</li>
+                </ul>
+            </section>
+        </div>
+
+        <section class="card fade-in delay-3">
+            <h2>4. Discussões e Deliberações</h2>
+
+            <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                <h3>📦 Checkout e Lógica de Endereçamento</h3>
+                <p>O aplicativo terá um checkout nativo no ecossistema da lista de presentes. O convidado terá a opção
+                    de enviar o pedido ao endereço do anfitrião ou retirar presencialmente/entregar pessoalmente.</p>
+                <p><strong>Decisão Final:</strong> Múltiplas opções de entrega/baixa. Jader e Júnior farão a alteração
+                    em vermelho no PDF da proposta para formalização e aprovação final com a Casas Goianita.</p>
+            </div>
+
+            <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                <h3>💳 Taxa de Checkout (R$ 0,99)</h3>
+                <p>A funcionalidade de Split de Pagamento gera um custo de R$ 0,99. Este custo deve ser absorvido pelo
+                    lojista ou repassado ao anfitrião.</p>
+                <p><strong>Decisão Final:</strong> A diretoria da Goianita avaliará o impacto financeiro
+                    (responsabilidade da Débora). O fornecedor atualizará a proposta com a métrica descrita, sendo
+                    flexível caso gere impasses contratuais.</p>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+                <h3>🎨 Identidade Visual e Kickoff</h3>
+                <p>A redação da marca da Goianita será repassada na próxima segunda-feira. A Huapps reforçou que a
+                    contagem do tempo de projeto apenas será iniciada mediante esse recebimento detalhado.</p>
+                <p><strong>Decisão Final:</strong> Aprovado. Prazo de início dos trabalhos técnicos congelado até o
+                    envio oficial dos ativos de design e manual da marca.</p>
+            </div>
+        </section>
+
+        <section class="card fade-in delay-4">
+            <h2>5. Plano de Ação Estratégico</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>O Que (Entregável)</th>
+                            <th>Por Que</th>
+                            <th>Quem</th>
+                            <th>Prazo</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Atualização e envio do PDF oficial</strong></td>
+                            <td>Formalizar opções de frete e taxa de R$ 0,99 discutidas</td>
+                            <td>Júnior (Huapps)</td>
+                            <td>Imediato</td>
+                            <td><span class="status-badge"
+                                    style="background-color: var(--accent-color); color: #000;">Em Execução</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Validar Taxa de Retenção (R$ 0,99)</strong></td>
+                            <td>Identificar o impacto em volume do custo de check-out</td>
+                            <td>Cléber Donato</td>
+                            <td>Ao receber PDF</td>
+                            <td><span class="status-badge warning">Em Análise</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Resolver Problema com E-mail</strong></td>
+                            <td>Resolver o bounce nos envios comerciais da Débora</td>
+                            <td>Cléber Donato</td>
+                            <td>Imediato</td>
+                            <td><span class="status-badge">A Iniciar</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Enviar Manual da Marca (Rebranding)</strong></td>
+                            <td>Liberar as contagens de prazo para desenvolvimento</td>
+                            <td>Cléber Donato</td>
+                            <td>Segunda-feira</td>
+                            <td><span class="status-badge">A Iniciar</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="fade-in delay-4 alert-block">
+            <h3 style="color: #ff4444; margin-bottom: 0.5rem;">⚠️ Pontos de Atenção para Auditoria</h3>
+            <p style="margin-bottom: 0;">A avaliação definitiva do fluxo transacional da taxa de checkout e a validade
+                oficial do repasse de encargos fica pendente. Recomenda-se forte revisão jurídica e gerencial quando do
+                retorno da proposta em PDF para garantir a fluidez final do projeto.</p>
+        </section>
+
     </main>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.card').forEach(card => observer.observe(card));
-    </script>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Live Consultoria. Todos os direitos reservados. Emissão por Agente de Inteligência Artificial
+                V3.</p>
+        </div>
+    </footer>
 
 </body>
 
